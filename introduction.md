@@ -25,5 +25,5 @@ pipelinedb进行流式数据存储和分析并提供Rest接口供管理系统提
 通过Rest和WebSocket的方式只能访问管理系统获取相应的资源，并进行展示。
 
 # 五、数据安全
-云平台只需要暴露管理系统和Mqtt的端口，其他本分全都是内部完成。Mqtt通过配置Mqtts的方式进行传输加密，配置账号密码的方式进行入网认证。而管理系统配置Https方式进行传输加密，JavaWebToken或HttpBasic方式进行权限认证。
+云平台只需要暴露管理系统和Mqtt的端口，其他本分全都是内部完成。Mqtt通过配置Mqtts的方式进行传输加密，配置账号密码的方式进行入网认证。而管理系统配置Https方式进行传输加密，JsonWebToken或HttpBasic方式进行权限认证。
 
