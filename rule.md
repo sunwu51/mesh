@@ -1,7 +1,7 @@
 # 开发规范与文档整理
 ## Mqtt Topic
 ```
-/{position}/{type}/{byte/json/conf}/{gatewayid}/{devid}
+/{position}/data|status|cmd|ws/{datatype}|gateway|node/{gatewaycode}/{nodecode}
 ```
 ## Rest接口文档
 云平台内部简单的接口开发，可以使用[小幺鸡](http://www.xiaoyaoji.cn)  
