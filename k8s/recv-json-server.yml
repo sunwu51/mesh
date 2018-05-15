@@ -1,0 +1,41 @@
+# k8s deploy json-server
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: recv-json-server
+  labels:
+    name: recv-json-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: json-server
+  template:
+    metadata:
+      labels:
+        name: json-server
+    spec:
+      containers:
+      - image: registry.cn-hangzhou.aliyuncs.com/bjtu/json-server
+        name: c-json-server
+        command: ["sh"]
+        args: ["-c","json-server -w /data/json-server/data.json"]
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+            - name: json-server-data
+              mountPath: "/data"
+      volumes:
+      - name: json-server-data
+        persistentVolumeClaim:
+          claimName: pvc1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: json-server-svc
+spec:
+  ports:
+  - port: 3000
+  selector:
+    name: json-server
