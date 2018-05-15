@@ -1,0 +1,31 @@
+# mqtt service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt-svc
+spec:
+  ports:
+  - name: web
+    port: 18083
+    targetPort: 18083
+  - name: tcp
+    port: 1883
+    targetPort: 1883
+  - name: ws
+    port: 8083
+    targetPort: 8083
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: mqtt-svc
+subsets:
+- addresses:
+  - ip: 120.76.136.124
+  ports:
+  - name: web
+    port: 18083
+  - name: tcp
+    port: 1883
+  - name: ws
+    port: 8083
